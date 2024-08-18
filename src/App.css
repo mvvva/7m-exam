@@ -1,0 +1,12 @@
+/* index.css */
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+.custom-select option {
+    background-color: #3f70d0;
+    color: #111827;
+}
+
+.custom-select option:hover {
+    background-color: #d1d5db; 
+}
