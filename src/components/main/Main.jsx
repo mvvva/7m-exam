@@ -33,7 +33,6 @@ function Main({ selectedBrand, selectedColor, sortBy }) {
 
         dispatch(saveProducts(filteredData));
         dispatch(setError(null)); 
-        // Reset to first page when filters change
         setCurrentPage(1);
       } catch (error) {
         dispatch(setError(error.message));
@@ -56,7 +55,6 @@ function Main({ selectedBrand, selectedColor, sortBy }) {
     });
   }, [products, sortBy]);
 
-  // Pagination logic
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = sortedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -138,7 +136,7 @@ function Main({ selectedBrand, selectedColor, sortBy }) {
       </div>
 
       {sortedProducts.length > productsPerPage && (
-        <div className="flex justify-center ">
+        <div className="flex justify-center">
           <div className="custom-pagination flex items-center space-x-2">
             <Pagination
               currentPage={currentPage}

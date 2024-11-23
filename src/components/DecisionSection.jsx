@@ -1,3 +1,4 @@
+// DecisionSection.jsx
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,7 +20,6 @@ const DecisionSection = () => {
 
     if (!section || !title || !button || !overlay) return;
 
-    // Create timeline for animations
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
@@ -28,7 +28,6 @@ const DecisionSection = () => {
       }
     });
 
-    // Initial states
     gsap.set([title, button], {
       opacity: 0,
       y: 30
@@ -38,7 +37,6 @@ const DecisionSection = () => {
       opacity: 0
     });
 
-    // Animation sequence
     tl.to(overlay, {
       opacity: 0.4,
       duration: 0.8,
@@ -57,7 +55,6 @@ const DecisionSection = () => {
       ease: "back.out(1.7)"
     }, "-=0.3");
 
-    // Button hover animation
     button.addEventListener('mouseenter', () => {
       gsap.to(button, {
         scale: 1.05,
@@ -74,7 +71,6 @@ const DecisionSection = () => {
       });
     });
 
-    // Simple parallax effect
     gsap.to(section, {
       backgroundPosition: "50% 30%",
       ease: "none",
@@ -94,7 +90,7 @@ const DecisionSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen bg-cover bg-center flex items-center"
+      className="relative min-h-screen bg-cover bg-center flex items-center"
       style={{
         backgroundImage: `url(${backgroundDecisionImg})`,
         backgroundPosition: "50% 50%"
@@ -105,17 +101,17 @@ const DecisionSection = () => {
         className="absolute inset-0 bg-black opacity-0"
       />
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-2xl ml-20">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-2xl mx-4 sm:ml-20">
           <h2 
             ref={titleRef}
-            className="text-6xl font-bold text-white mb-8"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-8"
           >
             Make Your Decision Today
           </h2>
           <button 
             ref={buttonRef}
-            className="py-3 px-28 bg-green-500 rounded-lg transition-colors text-white font-semibold"
+            className="w-full sm:w-auto py-2 sm:py-3 px-8 sm:px-28 bg-green-500 rounded-lg transition-colors text-white font-semibold text-sm sm:text-base"
           >
             Join Now
           </button>
@@ -125,4 +121,4 @@ const DecisionSection = () => {
   );
 };
 
-export default DecisionSection;
+export default DecisionSection
