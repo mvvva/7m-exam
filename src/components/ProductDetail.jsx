@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { changeQuantity } from '../../features/cart/cartSlice';
-import Image from '../../assets/images/test.jpg';
-import { addItem } from '../../features/cart/cartSlice';
+import { changeQuantity } from '../features/cart/cartSlice';
+import Image from '../assets/images/test.jpg';
+import { addItem } from '../features/cart/cartSlice';
 
 const ProductPage = () => {
   const { id } = useParams(); 

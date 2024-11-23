@@ -1,38 +1,136 @@
-.colors-wrapper {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+/* Base aside container */
+.aside-container {
+  @apply w-[280px] bg-white border-r border-gray-200 overflow-auto;
+  position: sticky;
+  top: 80px; 
 }
 
+/* Custom scrollbar - keeping for mobile view */
+.aside-container::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+.aside-container::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+.aside-container::-webkit-scrollbar-thumb {
+  @apply bg-green-600 rounded-full hover:bg-green-700;
+}
+
+/* Rest of the styles remain the same */
+.aside-inner {
+  @apply p-6;
+}
+
+/* Filter header */
+.filter-header {
+  @apply flex items-center justify-between mb-6;
+}
+
+.filter-title {
+  @apply text-xl font-semibold text-gray-900;
+}
+
+.close-button {
+  @apply p-2 text-gray-500 hover:text-gray-700 rounded-full hover:bg-gray-100 transition-colors;
+}
+
+/* Filter sections */
+.filter-section {
+  @apply mb-8;
+}
+
+.section-title {
+  @apply text-base font-semibold text-gray-800 mb-4 flex items-center gap-2;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  @apply w-4 h-4 border-2 border-green-500 border-t-transparent rounded-full animate-spin;
+}
+
+/* Error message */
+.error-message {
+  @apply text-red-500 text-sm bg-red-50 p-3 rounded-md;
+}
+
+/* Brands list */
 .brands-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
+  @apply space-y-1;
 }
 
-.brands-wrapper input[type="radio"] {
-    display: inline-block;
-    margin-right: 0.5rem;
+.brand-item {
+  @apply relative flex items-center p-1.5 rounded-md cursor-pointer hover:bg-gray-50 transition-colors;
 }
 
+.brand-item input {
+  @apply w-4 h-4 mr-3 accent-green-600 cursor-pointer;
+}
+
+.brand-label {
+  @apply text-sm text-gray-700 select-none font-medium;
+}
+
+/* Colors grid */
+.colors-wrapper {
+  @apply grid grid-cols-4 gap-2;
+}
+
+.color-button {
+  @apply w-10 h-10 rounded-lg transition-all relative border-2 border-transparent shadow-md hover:scale-110;
+}
+
+.color-button.selected {
+  @apply border-green-500 scale-110 shadow-md;
+}
+
+.color-button.selected::after {
+  content: '';
+  @apply absolute inset-0 ring-2 ring-green-500 ring-offset-2 rounded-lg;
+}
+
+/* Reset buttons */
 .reset-buttons {
-    display: flex;
-    gap: 0.5rem;
-    margin: 1rem 0;
+  @apply space-y-3 mt-8;
 }
 
 .reset-btn {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-    background-color: #E53E3E;
-    color: white;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  @apply w-full py-2.5 text-sm font-medium rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.reset-btn:hover {
-    background-color: #C53030;
+.reset-btn-brand {
+  @apply bg-green-600 text-white hover:bg-green-700 shadow-sm hover:shadow-md disabled:hover:bg-green-600;
+}
+
+.reset-btn-color {
+  @apply bg-gray-100 text-gray-700 hover:bg-gray-200 disabled:hover:bg-gray-100;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .aside-container {
+    @apply fixed left-0 top-0 h-screen w-[300px] overflow-auto -translate-x-full transition-transform duration-300 ease-in-out z-50 mt-0;
+
+  }
+
+  .aside-container.open {
+    @apply translate-x-0;
+  }
+
+  .aside-overlay {
+    @apply fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity z-40;
+  }
+
+  .aside-overlay.open {
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  .mobile-toggle {
+    @apply fixed left-4 bottom-4 z-30 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-colors;
+  }
+
+  .mobile-close-btn {
+    @apply absolute top-4 right-4 p-2 text-white hover:bg-white/10 rounded-full transition-colors;
+  }
 }

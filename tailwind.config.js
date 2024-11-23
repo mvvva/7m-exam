@@ -11,7 +11,7 @@ export default {
         "secondary-color": "#6E95B6"
       },
       fontFamily: {
-        'primary-font': 'monospace'
+        'primary-font': ['Gill Sans', 'Gill Sans MT', 'Trebuchet MS']
       },
       screens: {
         'xs': '475px',
