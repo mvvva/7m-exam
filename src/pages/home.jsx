@@ -28,7 +28,7 @@ export const SECTIONS = {
   CONTACT:{
     title: "I help turn your ideas into digital realities.",
     subtitle: `Hi there, I am Saidumarkhon. 
-    I am Frontend Developer, specialize in designing and implementing the user-facing aspects of software applications, such as websites or web applications.`
+    I am a Frontend Developer specializing in building user-facing aspects of web applications, focusing on layout, design, and interactive functionality.`
   }
 
 };
